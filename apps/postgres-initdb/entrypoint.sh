@@ -4,7 +4,7 @@ export PGHOST="${POSTGRES_HOST}"
 export PGUSER="${POSTGRES_SUPER_USER}"
 export PGPASSWORD="${POSTGRES_SUPER_PASS}"
 
-if [[ -z "${PGHOST}" || -z "${PGHOST}" || -z "${PGPASSWORD}" || -z "${POSTGRES_USER}" || -z "${POSTGRES_PASS}" || -z "${POSTGRES_DB}" ]]; then
+if [[ -z "${PGHOST}" || -z "${PGUSER}" || -z "${PGPASSWORD}" || -z "${POSTGRES_USER}" || -z "${POSTGRES_PASS}" || -z "${POSTGRES_DB}" ]]; then
     printf "\e[1;32m%-6s\e[m\n" "Invalid configuration ..."
     exit 1
 fi
