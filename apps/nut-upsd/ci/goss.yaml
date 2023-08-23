@@ -1,0 +1,9 @@
+---
+file:
+  /usr/sbin/upsd:
+    exists: true
+  /usr/sbin/upsmon:
+    exists: true
+port:
+  tcp:3493:
+    listening: true

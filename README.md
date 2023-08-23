@@ -22,11 +22,11 @@ The containers built here do not use immutable tags, as least not in the more co
 
 I do take a similar approach but instead of appending a `-ls69` or `-r420` prefix to the tag I instead insist on pinning to the sha256 digest of the image. While this is not as pretty it is just as functional in making the images immutable.
 
-| Container                                                | Immutable |
-|----------------------------------------------------------|-----------|
-| `ghcr.io/ahinko/postgres-initdb:rolling`                 | ❌        |
-| `ghcr.io/ahinko/postgres-initdb:15.2`                    | ❌        |
-| `ghcr.io/ahinko/postgres-initdb:rolling@sha256:8053...`  | ✅        |
-| `ghcr.io/ahinko/postgres-initdb:15.2@sha256:8053...`     | ✅        |
+| Container                                              | Immutable |
+|--------------------------------------------------------|-----------|
+| `ghcr.io/ahinko/postgres-init:rolling`                 | ❌        |
+| `ghcr.io/ahinko/postgres-init:15.2`                    | ❌        |
+| `ghcr.io/ahinko/postgres-init:rolling@sha256:8053...`  | ✅        |
+| `ghcr.io/ahinko/postgres-init:15.2@sha256:8053...`     | ✅        |
 
 _If pinning an image to the sha256 digest, tools like [Renovate](https://github.com/renovatebot/renovate) support updating the container on a digest or application version change._
