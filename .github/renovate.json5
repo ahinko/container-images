@@ -1,37 +1,54 @@
 {
-  "extends": [
+  extends: [
     "config:base",
     "docker:enableMajor",
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":semanticCommits",
-    ":automergeDigest"
+    ":automergeDigest",
   ],
 
-  "platform": "github",
-  "username": "homeops-bot[bot]",
-  "repositories": ["ahinko/container-images"],
-  "timezone": "Europe/Stockholm",
-  "onboarding": false,
-  "requireConfig": "optional",
-  "gitAuthor": "homeops-bot <104016614+homeops-bot[bot]@users.noreply.github.com>",
-  "dependencyDashboardTitle": "🤖 Renovate Dashboard",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "commitBodyTable": true,
-  "packageRules": [
+  platform: "github",
+  username: "homeops-bot[bot]",
+  repositories: ["ahinko/container-images"],
+  timezone: "Europe/Stockholm",
+  onboarding: false,
+  requireConfig: "optional",
+  gitAuthor: "homeops-bot <104016614+homeops-bot[bot]@users.noreply.github.com>",
+  dependencyDashboardTitle: "🤖 Renovate Dashboard",
+  suppressNotifications: ["prIgnoreNotification"],
+  commitBodyTable: true,
+  packageRules: [
     {
-      "description": "Auto-merge Github Actions",
-      "matchDatasources": ["github-tags"],
-      "automerge": true,
-      "automergeType": "branch",
-      "ignoreTests": true,
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchPackagePatterns": ["renovatebot/github-action"]
+      description: "Auto-merge Github Actions",
+      matchDatasources: ["github-tags"],
+      automerge: true,
+      automergeType: "branch",
+      ignoreTests: true,
+      matchUpdateTypes: ["minor", "patch"],
+      matchPackagePatterns: ["renovatebot/github-action"],
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
-      "commitMessagePrefix": "📣 "
-    }
-  ]
+      matchDatasources: ["docker"],
+      matchUpdateTypes: ["digest"],
+      commitMessagePrefix: "🚀 ",
+    },
+  ],
+  customManagers: [
+    {
+      customType: "regex",
+      description: "Process Kubernetes versions",
+      fileMatch: ["apps/postgres-ext/ci/latest.sh"],
+      matchStrings: ['printf "(?<currentValue>.*)"'],
+      depNameTemplate: "ghcr.io/cloudnative-pg/postgresq",
+      datasourceTemplate: "docker",
+    },
+  ],
+  packageRules: [
+    {
+      matchDatasources: ["docker"],
+      versioning: "regex:^(?<major>\\d{2}).(?<minor>\\d{1,2})-(?<patch>\\d{1,2})$",
+      matchPackageNames: ["cloudnative-pg/postgresql"],
+    },
+  ],
 }
