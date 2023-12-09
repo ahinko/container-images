@@ -24,9 +24,9 @@ I do take a similar approach but instead of appending a `-ls69` or `-r420` prefi
 
 | Container                                             | Immutable |
 |-------------------------------------------------------|-----------|
-| `ghcr.io/ahinko/postgres-ext:rolling`                 | ❌        |
-| `ghcr.io/ahinko/postgres-ext:16.1`                    | ❌        |
-| `ghcr.io/ahinko/postgres-ext:rolling@sha256:8053...`  | ✅        |
-| `ghcr.io/ahinko/postgres-ext:16.1@sha256:8053...`     | ✅        |
+| `ghcr.io/ahinko/kubernetes:rolling`                   | ❌        |
+| `ghcr.io/ahinko/kubernetes:1.28.0`                    | ❌        |
+| `ghcr.io/ahinko/kubernetes::rolling@sha256:8053...`   | ✅        |
+| `ghcr.io/ahinko/kubernetes:1.28.0@sha256:8053...`     | ✅        |
 
 _If pinning an image to the sha256 digest, tools like [Renovate](https://github.com/renovatebot/renovate) support updating the container on a digest or application version change._

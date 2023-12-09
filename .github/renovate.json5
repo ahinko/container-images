@@ -34,21 +34,4 @@
       commitMessagePrefix: "🚀 ",
     },
   ],
-  customManagers: [
-    {
-      customType: "regex",
-      description: "Process Postgres versions",
-      fileMatch: ["apps/postgres-ext/ci/latest.sh"],
-      matchStrings: ['printf "(?<currentValue>.*)"'],
-      depNameTemplate: "ghcr.io/cloudnative-pg/postgresql",
-      datasourceTemplate: "docker",
-    },
-  ],
-  packageRules: [
-    {
-      matchDatasources: ["docker"],
-      versioning: "regex:^(?<major>\\d{2}).(?<minor>\\d{1,2})-(?<patch>\\d{1,2})$",
-      matchPackageNames: ["ghcr.io/cloudnative-pg/postgresql"],
-    },
-  ],
 }
