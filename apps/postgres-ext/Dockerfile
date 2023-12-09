@@ -1,4 +1,4 @@
-FROM ghcr.io/cloudnative-pg/postgresql:16.1-5
+FROM ghcr.io/cloudnative-pg/postgresql:16.1-6
 
 # To install any package we need to be root
 USER root
