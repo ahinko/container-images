@@ -37,7 +37,7 @@ RUN \
   py3-tz \
   tzdata \
   && python3 -m pip install --upgrade --break-system-packages pip \
-  && python3 -m pip install radicale==3.1.9 --break-system-packages passlib[bcrypt] \
+  && python3 -m pip install radicale==$VERSION --break-system-packages passlib[bcrypt] \
   && chown -R 568:568 /app \
   && chmod -R 755 /app \
   && mkdir -p /data \
