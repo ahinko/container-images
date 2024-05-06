@@ -36,8 +36,9 @@ RUN \
   py3-pip \
   py3-tz \
   tzdata \
+  git \
   && python3 -m pip install --upgrade --break-system-packages pip \
-  && python3 -m pip install radicale==$VERSION --break-system-packages passlib[bcrypt] \
+  && python3 -m pip install "git+https://github.com/Kozea/Radicale@v$VERSION" --break-system-packages passlib[bcrypt] \
   && chown -R 568:568 /app \
   && chmod -R 755 /app \
   && mkdir -p /data \
