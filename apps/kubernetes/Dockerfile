@@ -1,4 +1,4 @@
-FROM ghcr.io/ahinko/alpine:rolling@sha256:b1583f332ae65f1eee88f1b8548f10b4bf5a50daec961e104b39401b9d9cd550
+FROM ghcr.io/ahinko/alpine:rolling@sha256:4ec21bc122f6efdc1e7e46a99b7004c70bae516f35f58be114f64871cefd68a1
 
 ARG TARGETPLATFORM
 ARG VERSION
